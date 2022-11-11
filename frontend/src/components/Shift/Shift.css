@@ -1,0 +1,20 @@
+.shift-container {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.shift {
+    width: 150px;
+    padding-top: 25px;
+    height: 100px;
+    border: 1px solid #282c34;
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.highlight {
+    background-color: #61dafb;
+}

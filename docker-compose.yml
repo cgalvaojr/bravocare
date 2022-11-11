@@ -1,0 +1,43 @@
+version: "3.4"
+
+services:
+  api:
+    container_name: bravocare-api
+    build:
+      context: backend
+      target: development
+    volumes:
+      - ./backend:/usr/src/app
+      - ./backend/node_modules:/usr/src/node_modules
+    ports:
+      - "4000:4000"
+    command: npm run dev
+
+  frontend:
+    container_name: bravocare-frontend
+    build:
+      context: frontend
+      target: development
+    volumes:
+      - ./frontend:/usr/src/app
+      - ./frontend/node_modules:/usr/src/node_modules
+    ports:
+      - "3000:3000"
+    command: npm start
+
+  db:
+    image: postgres:13.7
+    container_name: bravocare-db
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./backend/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_PASSWORD: devsecret
+      POSTGRES_USER: devuser
+      POSTGRES_DB: devdb
+    ports:
+      - "54320:5432"
+
+volumes:
+  db_data:

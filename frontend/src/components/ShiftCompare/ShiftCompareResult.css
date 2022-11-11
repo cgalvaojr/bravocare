@@ -1,0 +1,12 @@
+.shift-compare-results {
+    width: 98%;
+    padding-top: 25px;
+    height: 100px;
+    border: 1px solid #282c34;
+    margin-left: 10px;
+    margin-bottom: 25px;
+}
+
+input {
+    margin-top: 15px;
+}
